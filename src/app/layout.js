@@ -1,3 +1,4 @@
+import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
       <body className={montserrat.className + " overflow-x-hidden"}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

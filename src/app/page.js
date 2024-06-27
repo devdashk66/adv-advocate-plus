@@ -1,4 +1,3 @@
-import Footer from "@/components/footer/Footer";
 import CTA from "@/components/home/CallToAction";
 import ExperienceSection from "@/components/home/ExperienceSection";
 import ExpertiseSection from "@/components/home/ExpertiseSection";
@@ -15,7 +14,6 @@ export default function Home() {
       <TestimonialCarousel />
       <ExpertiseSection />
       <CTA />
-      <Footer />
     </>
   );
 }
