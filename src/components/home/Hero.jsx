@@ -9,7 +9,7 @@ const Hero = () => {
       className="flex items-center justify-center h-screen bg-cover bg-center -mt-20 "
       style={{
         backgroundImage:
-          "linear-gradient(#ffffff30, #ffffff30), url('/images/hero.jpeg')",
+          "linear-gradient(#00000099, #ffffff30), url('/images/hero.jpeg')",
       }}
     >
       <div className="container mx-auto px-4">

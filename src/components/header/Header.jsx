@@ -19,7 +19,7 @@ const Header = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="sticky top-0 z-50 bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700 lg:bg-white/10 lg:backdrop-blur-md">
+    <nav className="bg-transparent border-gray-200 ">
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -45,7 +45,7 @@ const Header = () => {
           <ul
             className={`bg-white absolute top-0 h-screen lg:h-fit ${
               isMobileMenuOpen ? "left-0" : "-left-96"
-            } py-10 lg:py-0 px-10 lg:px-0  h-full flex-col lg:flex-row  lg:static lg:bg-transparent flex gap-5 lg:gap-14 shadow-2xl lg:shadow-none font-semibold text-gray-600 duration-200`}
+            } py-10 lg:py-0 px-10 lg:px-0  h-full flex-col lg:flex-row  lg:static lg:bg-transparent flex gap-5 lg:gap-14 shadow-2xl lg:shadow-none font-semibold text-white duration-200`}
           >
             <li>
               <Link
