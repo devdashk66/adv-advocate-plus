@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import {
   FaBalanceScale,
@@ -7,17 +6,12 @@ import {
   FaBusinessTime,
   FaGavel,
 } from "react-icons/fa";
-import { Button } from "../ui/button";
 
 const PracticeAreas = () => {
   return (
     <div className="bg-gray-900 text-gray-200 py-24">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ type: "spring", stiffness: 100 }}
-        >
+        <div>
           <h2 className="text-4xl font-bold mb-6">
             Our <span className="text-default">Practice Areas</span>
           </h2>
@@ -30,8 +24,10 @@ const PracticeAreas = () => {
             Separated they live in Bookmarksgrove right at the coast of the
             Semantics, a large language ocean.
           </p>
-          <Button className="rounded-full">Learn More</Button>
-        </motion.div>
+          <Link href="/services" className="rounded-full">
+            Learn More
+          </Link>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
           <PracticeAreaCard
@@ -60,16 +56,11 @@ const PracticeAreas = () => {
           />
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 200 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ type: "spring", stiffness: 50 }}
-          className="mt-6"
-        >
+        <div className="mt-6">
           <Link href="/services" className="text-default font-bold">
             More Practice Areas &rarr;
           </Link>
-        </motion.div>
+        </div>
       </div>
     </div>
   );
@@ -77,19 +68,13 @@ const PracticeAreas = () => {
 
 const PracticeAreaCard = ({ icon, title, description, delay }) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, x: -50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ type: "spring", stiffness: 100, delay }}
-      whileHover={{ scale: 1.05 }}
-      className="bg-gray-800 p-6 rounded-lg shadow-lg flex items-start"
-    >
+    <div className="bg-gray-800 p-6 rounded-lg shadow-lg flex items-start">
       <div className="bg-gray-700 p-4 rounded-full mr-4">{icon}</div>
       <div>
         <h3 className="text-xl text-default font-bold mb-2">{title}</h3>
         <p className="text-white/60">{description}</p>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

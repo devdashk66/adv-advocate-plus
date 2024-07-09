@@ -1,7 +1,6 @@
 "use client";
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { Button } from "../ui/button";
+import { FaArrowRight } from "react-icons/fa";
 
 const Hero = () => {
   return (
@@ -13,12 +12,7 @@ const Hero = () => {
       }}
     >
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ type: "spring", stiffness: 100 }}
-          className="bg-black bg-opacity-50 p-8 rounded-lg md:text-center lg:text-left"
-        >
+        <div className="bg-black bg-opacity-50 p-8 rounded-lg md:text-center lg:text-left">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             We <span className="text-default">Defend</span> Your Rights
           </h1>
@@ -26,10 +20,13 @@ const Hero = () => {
             Your trusted partner in legal matters. Get the support you need with
             our professional services.
           </p>
-          <Button>
-            <Link href="/contact">Free Consultation</Link>
-          </Button>
-        </motion.div>
+          <Link
+            className="text-default flex items-center gap-3 hover:text-white duration-200 "
+            href="/contact"
+          >
+            Free Consultation <FaArrowRight />
+          </Link>
+        </div>
       </div>
     </section>
   );

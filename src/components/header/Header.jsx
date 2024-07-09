@@ -1,13 +1,4 @@
 "use client";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -20,12 +11,7 @@ const Header = () => {
 
   return (
     <nav className="bg-transparent border-gray-200 ">
-      <motion.div
-        initial={{ opacity: 0, y: -50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ type: "spring", stiffness: 100 }}
-        className="max-w-screen-xl flex flex-wrap justify-between items-center mx-auto p-4"
-      >
+      <div className="max-w-screen-xl flex flex-wrap justify-between items-center mx-auto p-4">
         <Link
           href="/"
           className="flex items-center space-x-3 rtl:space-x-reverse opacity-80 hover:opacity-90 duration-200"
@@ -57,39 +43,7 @@ const Header = () => {
                 Home
               </Link>
             </li>
-            <li>
-              <NavigationMenu>
-                <NavigationMenuList>
-                  <NavigationMenuItem>
-                    <NavigationMenuTrigger
-                      className={`hover:text-default lg:duration-200 ${"hi"}`}
-                    >
-                      Dropdown
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent className="flex flex-col gap-3">
-                      <NavigationMenuLink>
-                        <a href="#">Dropdown_Item</a>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink>
-                        <a href="#">Dropdown_Item</a>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink>
-                        <a href="#">Dropdown_Item</a>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink>
-                        <a href="#">Dropdown_Item</a>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink>
-                        <a href="#">Dropdown_Item</a>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink>
-                        <a href="#">Dropdown_Item</a>
-                      </NavigationMenuLink>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                </NavigationMenuList>
-              </NavigationMenu>
-            </li>
+
             <li>
               <Link
                 className={`hover:text-default lg:duration-200 ${
@@ -140,7 +94,7 @@ const Header = () => {
             </li>
           </ul>
         </div>
-      </motion.div>
+      </div>
     </nav>
   );
 };

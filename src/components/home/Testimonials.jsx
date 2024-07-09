@@ -1,14 +1,14 @@
 "use client";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import { motion } from "framer-motion";
 import Image from "next/image";
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+// import required modules
+import { Autoplay, Navigation } from "swiper/modules";
 
 const testimonials = [
   {
@@ -90,43 +90,45 @@ const Testimonials = () => {
         <h2 className="text-4xl font-bold mb-6">
           <span className="text-default">Happy</span> Clients
         </h2>
-        <Carousel
-          plugins={[
-            Autoplay({
-              delay: 3000,
-            }),
-          ]}
-          opts={{
-            align: "start",
-            loop: true,
+
+        <Swiper
+          navigation={true}
+          modules={[Navigation, Autoplay]}
+          className="mySwiper"
+          autoplay={{
+            delay: 3000,
           }}
-          className="relative w-full"
+          breakpoints={{
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 2,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 3,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 4,
+            },
+          }}
         >
-          <CarouselContent>
-            {testimonials.map((item, index) => (
-              <CarouselItem
-                key={item.name}
-                className="md:basis-1/2 lg:basis-1/3 p-4 justify-center items-center"
-              >
-                <motion.div
-                  initial={{ opacity: 0, y: 100 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ type: "spring", stiffness: 50 }}
-                  className="bg-gray-800 rounded-lg shadow-md p-6"
-                >
-                  <Card
-                    comment={item.comment}
-                    name={item.name}
-                    title={item.title}
-                    image={item.photo}
-                  />
-                </motion.div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="absolute -left-5 top-1/2 transform -translate-y-1/2 p-2 bg-gray-800 rounded-full text-white cursor-pointer" />
-          <CarouselNext className="absolute right-0 top-1/2 transform -translate-y-1/2 p-2 bg-gray-800 rounded-full text-white cursor-pointer" />
-        </Carousel>
+          {testimonials.map((item, index) => (
+            <SwiperSlide
+              key={item.name}
+              className="md:basis-1/2 lg:basis-1/3 p-4 justify-center items-center"
+            >
+              <div className="bg-gray-800 rounded-lg shadow-md p-6">
+                <Card
+                  comment={item.comment}
+                  name={item.name}
+                  title={item.title}
+                  image={item.photo}
+                />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </div>
   );

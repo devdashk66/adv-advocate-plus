@@ -1,16 +1,10 @@
 "use client";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa";
 import Avater from "/public/images/avater.webp";
 
 const Card = ({ person }) => (
-  <motion.div
-    initial={{ opacity: 0, x: -100 }}
-    whileInView={{ opacity: 1, x: 0 }}
-    transition={{ type: "spring", stiffness: 100, delay: 0.2 * person.id }}
-    className="p-6 flex flex-col"
-  >
+  <div className="p-6 flex flex-col">
     <Image
       src={Avater}
       alt={person.name}
@@ -27,7 +21,7 @@ const Card = ({ person }) => (
     >
       Learn More <FaArrowRight />
     </a>
-  </motion.div>
+  </div>
 );
 
 export default Card;
