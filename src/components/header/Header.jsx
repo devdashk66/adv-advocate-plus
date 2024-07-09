@@ -3,7 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { FaBars } from "react-icons/fa";
-
+import { IoClose } from "react-icons/io5";
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -25,7 +25,11 @@ const Header = () => {
           aria-controls="navbar-multi-level"
         >
           <span className="sr-only">Open main menu</span>
-          <FaBars className="w-6 h-6" />
+          {isMobileMenuOpen ? (
+            <IoClose className="w-6 h-6 text-2xl" />
+          ) : (
+            <FaBars className="w-6 h-6" />
+          )}
         </button>
         <div className={`w-full lg:block lg:w-auto`}>
           <ul
